@@ -11,7 +11,7 @@ data class User(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val firstName: String,
-    val lastName: String,
+//    val lastName: String,
     val wins: Int,
     val losses: Int,
     val draws: Int
