@@ -25,15 +25,13 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = userList[position]
-/*
-        holder.itemView.id_txt.text = currentItem.id.toString()
-*/
+
         holder.itemView.firstName_txt.text = currentItem.firstName
-//        holder.itemView.lastName_txt.text = currentItem.lastName
         holder.itemView.wins_txt.text = currentItem.wins.toString()
         holder.itemView.losses_txt.text = currentItem.losses.toString()
         holder.itemView.draws_txt.text = currentItem.draws.toString()
-
+        holder.itemView.matches_txt.text = (currentItem.wins+currentItem.losses+currentItem.draws).toString()
+        holder.itemView.winLossRatio_txt.text = "%.2f".format((currentItem.wins.toFloat()/currentItem.losses.toFloat()).takeIf { !it.isNaN() } ?: 0.0)
 
 
         holder.itemView.rowLayout.setOnClickListener {

@@ -60,11 +60,19 @@ class ListFragment : Fragment() {
     private fun deleteAllUsers() {
         val builder = AlertDialog.Builder(requireContext())
         builder.setPositiveButton("Yes") { _, _ ->
-            mUserViewModel.deleteAllUsers()
-            Toast.makeText(
-                requireContext(),
-                "Successfully removed everything",
-                Toast.LENGTH_SHORT).show()
+            builder.setPositiveButton("Yes"){_,_-> //ask one more time if user wants to delete everything
+                builder.setTitle("Delete everything?")
+                builder.setMessage("Are you sure you want to delete everything?")
+                mUserViewModel.deleteAllUsers()
+                Toast.makeText(
+                        requireContext(),
+                        "Successfully removed everything",
+                        Toast.LENGTH_SHORT).show()
+            }
+            builder.setNegativeButton("No") { _, _ -> }
+            builder.setTitle("Delete everything?")
+            builder.setMessage("Are you REALLY sure you want to delete ALL your player data?")
+            builder.create().show()
         }
         builder.setNegativeButton("No") { _, _ -> }
         builder.setTitle("Delete everything?")
