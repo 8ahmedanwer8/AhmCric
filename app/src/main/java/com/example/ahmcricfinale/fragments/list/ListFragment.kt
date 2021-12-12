@@ -26,7 +26,7 @@ class ListFragment : Fragment() {
 
         // Recyclerview
         val adapter = ListAdapter()
-        val recyclerView = view.recyclerView
+        val recyclerView = view.recyclerViewTable
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 

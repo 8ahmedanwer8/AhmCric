@@ -24,6 +24,9 @@ class home : Fragment() {
         view.homeBtnOne.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_listFragment)
         }
+        view.homeBtnTwo.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_generateTeamFragment)
+        }
 
         return view
     }

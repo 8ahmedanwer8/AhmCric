@@ -46,5 +46,13 @@
         <action
             android:id="@+id/action_homeFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_generateTeamFragment"
+            app:destination="@id/generateTeamFragment" />
     </fragment>
+        <fragment
+        android:id="@+id/generateTeamFragment"
+        android:name="com.example.ahmcricfinale.fragments.generateTeamFragment.generateTeamFragment"
+        android:label="fragment_generate_team"
+        tools:layout="@layout/fragment_generate_team" />
 </navigation>

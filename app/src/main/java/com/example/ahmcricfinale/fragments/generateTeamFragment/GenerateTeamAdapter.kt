@@ -1,17 +1,23 @@
 package com.example.ahmcricfinale.fragments.list
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ahmcricfinale.R
+import com.example.ahmcricfinale.fragments.generateTeamFragment.GenerateTeamSelectionAdapter
 import com.example.ahmcricfinale.model.User
 import kotlinx.android.synthetic.main.row_item_list.view.*
 
-class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
+//var userSelected: String? = null
+val selectedUserList = mutableListOf<User>();
+class GenerateTeamAdapter: RecyclerView.Adapter<GenerateTeamAdapter.MyViewHolder>() {
 
     private var userList = emptyList<User>()
+//    private var selectedUserList = emptyList<User>()
+
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
 
@@ -20,7 +26,7 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-       return userList.size
+        return userList.size
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
@@ -35,9 +41,19 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
 
         holder.itemView.rowLayout.setOnClickListener {
-            val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
-            holder.itemView.findNavController().navigate(action)
+            addToRecyclerViewGenerate(userList[position])
+//            Log.i("GenerateTeamAdapter","the position $position, the userlist ${userList[position]}, userSelected {$userSelected}")
+
+//            val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
+//            holder.itemView.findNavController().navigate(action)
         }
+    }
+
+    private fun addToRecyclerViewGenerate(user: User) {
+        if (!selectedUserList.contains(user)) {
+            selectedUserList.add(user)
+        }
+        Log.i("GenerateTeamAdapter","selectedUserList {$selectedUserList}")
     }
 
     fun setData(user: List<User>){
