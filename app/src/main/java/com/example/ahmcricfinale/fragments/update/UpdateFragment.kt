@@ -2,7 +2,6 @@ package com.example.ahmcricfinale.fragments.update
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.text.Editable
 import android.text.TextUtils
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -69,7 +68,7 @@ class UpdateFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menu_delete) {
+        if (item.itemId == R.id.delete_menu) {
             deleteUser()
         }
         return super.onOptionsItemSelected(item)

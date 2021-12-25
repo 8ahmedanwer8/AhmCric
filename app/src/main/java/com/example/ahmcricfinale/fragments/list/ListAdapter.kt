@@ -10,8 +10,9 @@ import com.example.ahmcricfinale.model.User
 import kotlinx.android.synthetic.main.row_item_list.view.*
 
 class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
-
-    private var userList = emptyList<User>()
+    companion object{
+        var userList = emptyList<User>()
+    }
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
 
@@ -33,7 +34,6 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         holder.itemView.matches_txt.text = (currentItem.wins+currentItem.losses+currentItem.draws).toString()
         holder.itemView.winLossRatio_txt.text = "%.2f".format((currentItem.wins.toFloat()/currentItem.losses.toFloat()).takeIf { !it.isNaN() } ?: 0.0)
 
-
         holder.itemView.rowLayout.setOnClickListener {
             val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
@@ -41,7 +41,7 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
     }
 
     fun setData(user: List<User>){
-        this.userList = user
+        userList = user
         notifyDataSetChanged()
     }
 }

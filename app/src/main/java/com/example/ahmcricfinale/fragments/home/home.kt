@@ -27,6 +27,9 @@ class home : Fragment() {
         view.homeBtnTwo.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_generateTeamFragment)
         }
+        view.homeBtnThree.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_gameFragment)
+        }
 
         return view
     }

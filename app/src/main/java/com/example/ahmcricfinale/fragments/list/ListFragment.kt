@@ -2,6 +2,7 @@ package com.example.ahmcricfinale.fragments.list
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -10,7 +11,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ahmcricfinale.R
+import com.example.ahmcricfinale.fragments.list.ListAdapter.Companion.userList
 import com.example.ahmcricfinale.viewmodel.UserViewModel
+import kotlinx.android.synthetic.main.fragment_list.*
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 class ListFragment : Fragment() {
@@ -21,14 +24,17 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflate the layout for this fragment and set listSize if > 1
         val view = inflater.inflate(R.layout.fragment_list, container, false)
+        view.listSize.text = if (userList.size > 1) "(All ${userList.size} of them)" else " "
+
 
         // Recyclerview
         val adapter = ListAdapter()
-        val recyclerView = view.recyclerViewTable
+        val recyclerView = view.recyclerViewPlayerTable
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
 
         // UserViewModel
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
@@ -42,17 +48,23 @@ class ListFragment : Fragment() {
 
         // Add menu
         setHasOptionsMenu(true)
+        android.R.id.home
 
         return view
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.delete_menu, menu)
-    }
+        }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.menu_delete){
+        if(item.itemId == R.id.delete_menu){
             deleteAllUsers()
+        }
+        if(item.itemId == R.id.home){
+            findNavController().navigateUp()
+            Log.i("ListFragment", "Clicked the back button")
+//            findNavController().navigate(R.id.action_listFragment_to_homeFragment)
         }
         return super.onOptionsItemSelected(item)
     }

@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_listFragment_to_updateFragment"
             app:destination="@id/updateFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -49,10 +52,18 @@
         <action
             android:id="@+id/action_homeFragment_to_generateTeamFragment"
             app:destination="@id/generateTeamFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
     </fragment>
         <fragment
         android:id="@+id/generateTeamFragment"
-        android:name="com.example.ahmcricfinale.fragments.generateTeamFragment.generateTeamFragment"
-        android:label="fragment_generate_team"
+        android:name="com.example.ahmcricfinale.fragments.generate.GenerateTeamFragment"
+        android:label="Generate random teams"
         tools:layout="@layout/fragment_generate_team" />
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.ahmcricfinale.fragments.game.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" />
 </navigation>
