@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.fragment_list.view.recyclerViewPlayerTable
 class GenerateTeamFragment : Fragment(),GenerateTeamAdapter.OnItemClickListener {
 
     companion object{//allows to make selection rv available to leaderboard rv
-        val generateTeamSelectionAdapter = GenerateTeamSelectionAdapter()
+    val generateTeamSelectionAdapter = GenerateTeamSelectionAdapter()
     }
     var teamANames = mutableListOf<String>()
     var teamBNames = mutableListOf<String>()
@@ -76,13 +76,13 @@ class GenerateTeamFragment : Fragment(),GenerateTeamAdapter.OnItemClickListener 
             else{
                 generateTeam(selectedUserList)
 
-                if (teamANames.size < 4 && teamBNames.size <4){
+                if (teamANames.size <= 4 || teamBNames.size <= 4){
                     teamAMembersTxt.setTextSize(20f)
                     teamBMembersTxt.setTextSize(20f)
                     generateCardView.teamAMembersTxt.text = teamANames.joinToString(separator = "   ")
                     generateCardView.teamBMembersTxt.text = teamBNames.joinToString(separator = "   ")
                 }
-                if (teamANames.size > 4 && teamBNames.size > 4){
+                if (teamANames.size > 4 || teamBNames.size > 4){
                     teamAMembersTxt.setTextSize(18f)
                     teamBMembersTxt.setTextSize(18f)
                     generateCardView.teamAMembersTxt.text = teamANames.joinToString(separator = "   ")

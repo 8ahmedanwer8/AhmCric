@@ -32,8 +32,12 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         holder.itemView.losses_txt.text = currentItem.losses.toString()
         holder.itemView.draws_txt.text = currentItem.draws.toString()
         holder.itemView.matches_txt.text = (currentItem.wins+currentItem.losses+currentItem.draws).toString()
-        holder.itemView.winLossRatio_txt.text = "%.2f".format((currentItem.wins.toFloat()/currentItem.losses.toFloat()).takeIf { !it.isNaN() } ?: 0.0)
-
+        val wr = (currentItem.wins.toFloat()/currentItem.losses.toFloat())
+        when {
+            wr.isNaN() -> {holder.itemView.winLossRatio_txt.text = "0.00"}
+            wr.isInfinite() -> {holder.itemView.winLossRatio_txt.text = "1.00"}
+            else -> {holder.itemView.winLossRatio_txt.text = "%.2f".format(wr)}
+        }
         holder.itemView.rowLayout.setOnClickListener {
             val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
             holder.itemView.findNavController().navigate(action)

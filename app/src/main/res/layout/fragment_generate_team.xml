@@ -221,22 +221,31 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.050000012" />
 
-            <TextView
-                android:id="@+id/teamAMembersTxt"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+            <ScrollView
+                android:id="@+id/scrollView2"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="Player1111 Player2222 Player3333 Player4444 Player1111 Player2222 Player3333 Player4444"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/teamBTxt"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.13999999" />
+                app:layout_constraintTop_toBottomOf="@+id/teamATxt"
+                app:layout_constraintVertical_bias="0.53">
+
+                <TextView
+                    android:id="@+id/teamAMembersTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Player1111 Player2222 Player3333 Player4444 Player1111 Player2222 Player3333 Player4444"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+            </ScrollView>
 
             <TextView
                 android:id="@+id/teamBTxt"
@@ -252,22 +261,31 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.53" />
 
-            <TextView
-                android:id="@+id/teamBMembersTxt"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="Player5555   Player6666   Player7777   Player8888"
-                android:textColor="#000000"
-                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/teamBTxt"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:id="@+id/teamBMembersTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Player5555   Player6666   Player7777   Player8888"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+            </ScrollView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

@@ -65,5 +65,6 @@
         android:id="@+id/gameFragment"
         android:name="com.example.ahmcricfinale.fragments.game.GameFragment"
         android:label="fragment_game"
-        tools:layout="@layout/fragment_game" />
+        tools:layout="@layout/fragment_game" >
+    </fragment>
 </navigation>

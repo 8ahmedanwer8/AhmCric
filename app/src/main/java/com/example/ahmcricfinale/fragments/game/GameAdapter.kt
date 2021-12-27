@@ -1,5 +1,6 @@
-package com.example.ahmcricfinale.fragments.generate
+package com.example.ahmcricfinale.fragments.game
 
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +14,7 @@ import kotlinx.android.synthetic.main.row_item_list.view.*
 import java.security.KeyStore
 
 
-class GenerateTeamAdapter(private val listener: GenerateTeamFragment) : RecyclerView.Adapter<GenerateTeamAdapter.MyViewHolder>() {
+class GameAdapter(private val listener: GameFragment) : RecyclerView.Adapter<GameAdapter.MyViewHolder>() {
 
 
     companion object {//allows to make selectionList publicly available to display in selection rv
@@ -39,7 +40,6 @@ class GenerateTeamAdapter(private val listener: GenerateTeamFragment) : Recycler
             }
         }
     }
-
     interface OnItemClickListener{
         fun onItemClick(position: Int)
     }
@@ -59,16 +59,22 @@ class GenerateTeamAdapter(private val listener: GenerateTeamFragment) : Recycler
         holder.itemView.losses_txt.text = currentItem.losses.toString()
         holder.itemView.draws_txt.text = currentItem.draws.toString()
         holder.itemView.matches_txt.text = (currentItem.wins+currentItem.losses+currentItem.draws).toString()
+
         val wr = (currentItem.wins.toFloat()/currentItem.losses.toFloat())
         when {
             wr.isNaN() -> {holder.itemView.winLossRatio_txt.text = "0.00"}
             wr.isInfinite() -> {holder.itemView.winLossRatio_txt.text = "1.00"}
             else -> {holder.itemView.winLossRatio_txt.text = "%.2f".format(wr)}
         }
+//        holder.itemView.winLossRatio_txt.text = "%.2f".format(wr).takeIf { !it.isNaN() } ?: 0.0)
+
 //        holder.itemView.rowLayout.setOnClickListener {
-//            addToRecyclerViewGenerate(userList[position], holder.itemView)
+//            holder.itemView.setBackgroundColor(Color.parseColor("#DC746C"))
+//
 //        }
     }
+
+
     fun addToRecyclerViewGenerate(user: User, background: View) {
         if (!selectedUserList.contains(user)) {
             selectedUserList.add(user)

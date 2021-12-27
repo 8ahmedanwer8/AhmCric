@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ahmcricfinale.R
+import com.example.ahmcricfinale.fragments.game.GameFragment
 import com.example.ahmcricfinale.fragments.list.ListAdapter.Companion.userList
 import com.example.ahmcricfinale.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_list.*
@@ -48,7 +50,10 @@ class ListFragment : Fragment() {
 
         // Add menu
         setHasOptionsMenu(true)
-        android.R.id.home
+
+        addOnBackPressedCallback {
+            Log.i("fuc", "fuck")
+        }
 
         return view
     }
@@ -60,11 +65,13 @@ class ListFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.delete_menu){
             deleteAllUsers()
+            return true
         }
-        if(item.itemId == R.id.home){
-            findNavController().navigateUp()
+        if(item.itemId == android.R.id.home){
             Log.i("ListFragment", "Clicked the back button")
-//            findNavController().navigate(R.id.action_listFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_listFragment_to_homeFragment)
+            return true
+
         }
         return super.onOptionsItemSelected(item)
     }
@@ -91,4 +98,17 @@ class ListFragment : Fragment() {
         builder.setMessage("Are you sure you want to delete everything?")
         builder.create().show()
     }
+
+    //Back button on this fragment is overridden to take user to the home fragment
+    private fun addOnBackPressedCallback(callback: () -> Unit) {
+        activity?.onBackPressedDispatcher?.addCallback( viewLifecycleOwner, object : OnBackPressedCallback(true)
+        {
+            override fun handleOnBackPressed() {
+                findNavController().navigate(R.id.action_listFragment_to_homeFragment)
+                callback()
+                remove() }
+        })
+    }
+
 }
+
