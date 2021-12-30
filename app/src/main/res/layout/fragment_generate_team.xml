@@ -5,7 +5,6 @@
     android:id="@+id/generateConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:foreground="@drawable/dimmer"
     android:background="#000000"
     tools:context=".fragments.list.ListFragment">
 
@@ -190,7 +189,7 @@
         android:id="@+id/generateCardView"
         android:layout_width="300dp"
         android:layout_height="320dp"
-        android:visibility="visible"
+        android:visibility="gone"
         app:cardBackgroundColor="@color/gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -255,7 +254,6 @@
                     android:layout_marginEnd="16dp"
                     android:fontFamily="sans-serif-medium"
                     android:text="Player1111 Player2222 Player3333 Player4444 Player1111 Player2222 Player3333 Player4444"
-                    android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="18sp" />
             </ScrollView>
