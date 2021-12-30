@@ -12,10 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ahmcricfinale.R
-import com.example.ahmcricfinale.fragments.game.GameFragment
 import com.example.ahmcricfinale.fragments.list.ListAdapter.Companion.userList
 import com.example.ahmcricfinale.viewmodel.UserViewModel
-import kotlinx.android.synthetic.main.fragment_list.*
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 class ListFragment : Fragment() {
@@ -28,7 +26,7 @@ class ListFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment and set listSize if > 1
         val view = inflater.inflate(R.layout.fragment_list, container, false)
-        view.listSize.text = if (userList.size > 1) "(All ${userList.size} of them)" else " "
+        view.textView2.text = if (userList.size > 1) "(All ${userList.size} of them)" else " "
 
 
         // Recyclerview
@@ -37,14 +35,13 @@ class ListFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-
         // UserViewModel
         mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         mUserViewModel.readAllData.observe(viewLifecycleOwner, Observer { user ->
             adapter.setData(user)
         })
 
-        view.addPlayerBtn.setOnClickListener {
+        view.addBtn.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
 
@@ -52,7 +49,7 @@ class ListFragment : Fragment() {
         setHasOptionsMenu(true)
 
         addOnBackPressedCallback {
-            Log.i("fuc", "fuck")
+            Log.i("ListFragment", "Goin' back")
         }
 
         return view
@@ -60,7 +57,7 @@ class ListFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.delete_menu, menu)
-        }
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.delete_menu){
@@ -68,7 +65,6 @@ class ListFragment : Fragment() {
             return true
         }
         if(item.itemId == android.R.id.home){
-            Log.i("ListFragment", "Clicked the back button")
             findNavController().navigate(R.id.action_listFragment_to_homeFragment)
             return true
 

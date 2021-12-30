@@ -31,6 +31,10 @@ class home : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_gameFragment)
         }
 
+        view.homeBtnFour.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_shareFragment)
+        }
+
         return view
     }
 

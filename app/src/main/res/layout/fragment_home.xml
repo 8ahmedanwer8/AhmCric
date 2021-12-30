@@ -7,6 +7,19 @@
     android:background="#000000"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/homeBtnFour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorAccent"
+        android:text="Share"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeBtnThree"
+        app:layout_constraintVertical_bias="0.100000024" />
+
     <TextView
         android:id="@+id/textWelcome"
         android:layout_width="wrap_content"
@@ -26,39 +39,39 @@
         android:id="@+id/homeBtnThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorPrimary"
-        android:textColor="#FFFFFF"
-        android:text="WHO WON "
+        android:backgroundTint="@color/colorAccent"
+        android:text="Log Games"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/homeBtnTwo"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.07999998" />
 
     <Button
         android:id="@+id/homeBtnTwo"
+        android:backgroundTint="@color/colorAccent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorPrimary"
-        android:textColor="#FFFFFF"
-        android:text="Team Generator? "
+        android:text="Random Team Generator"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/homeBtnOne"
-        app:layout_constraintVertical_bias="0.23000002" />
+        app:layout_constraintVertical_bias="0.060000002" />
 
     <Button
         android:id="@+id/homeBtnOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorAccent"
         android:text="Build your team"
-        android:backgroundTint="@color/colorPrimary"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textWelcome"
-        app:layout_constraintVertical_bias="0.23000002" />
+        app:layout_constraintVertical_bias="0.19999999" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

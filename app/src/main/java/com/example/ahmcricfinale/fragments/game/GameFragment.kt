@@ -1,5 +1,6 @@
 package com.example.ahmcricfinale.fragments.game
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -16,6 +17,7 @@ import com.example.ahmcricfinale.fragments.game.GameAdapter.Companion.userList
 import com.example.ahmcricfinale.fragments.update.UpdateFragmentArgs
 import com.example.ahmcricfinale.model.User
 import com.example.ahmcricfinale.viewmodel.UserViewModel
+import com.github.jinatonic.confetti.CommonConfetti
 import kotlinx.android.synthetic.main.fragment_game.*
 import kotlinx.android.synthetic.main.fragment_game.teamAMembersTxt
 import kotlinx.android.synthetic.main.fragment_game.teamBMembersTxt
@@ -39,6 +41,16 @@ class GameFragment : Fragment(),GameAdapter.OnItemClickListener {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_game, container, false)
+
+//        dimmer(100)
+        view?.textView?.foreground?.alpha = 0
+        view?.constraintLayout2?.foreground?.alpha = 0
+        view?.recyclerViewPlayerTable?.foreground?.alpha = 0
+        view?.addToTeamABtn?.foreground?.alpha = 0
+        view?.addToTeamBBtn?.foreground?.alpha = 0
+        view?.deleteBtn?.foreground?.alpha = 0
+        view?.startBtn?.foreground?.alpha = 0
+
         val addToTeamABtn = view.addToTeamABtn
         val addToTeamBBtn = view.addToTeamBBtn
         val deleteBtn = view.deleteBtn
@@ -98,7 +110,6 @@ class GameFragment : Fragment(),GameAdapter.OnItemClickListener {
         }
 
         view.startBtn.setOnClickListener{
-            Log.i("nig", "$teamAPlayersNames,$teamBPlayersNames, $teamAPlayers,$teamBPlayers")
             if (teamAPlayers.isNotEmpty() && teamBPlayers.isNotEmpty()){
                 if (teamAPlayersNames.size <= 4 || teamBPlayersNames.size <= 4){
                     teamAMembersTxt.setTextSize(20f)
@@ -113,6 +124,7 @@ class GameFragment : Fragment(),GameAdapter.OnItemClickListener {
                     startGameCardView.teamBMembersTxt.text = teamBPlayersNames.joinToString(separator = "   ")
                 }
                 view.startGameCardView.visibility = View.VISIBLE
+                dimmer(0)
                 view.setOnClickListener {
                     view.startGameCardView.visibility = View.GONE
                 }
@@ -135,11 +147,13 @@ class GameFragment : Fragment(),GameAdapter.OnItemClickListener {
             suspendBtn.visibility = View.GONE
         }
 
-        //Hide start game cardview and show congrats cardview with appropriate team name
+        //Hide start game cardview and show congrats cardview with appropriate team name and confetti
         view.teamAWonBtn.setOnClickListener{
             updateUser(1)
+            doConfetti()
             startGameCardView.visibility = View.GONE
             congratsGameCardView.visibility = View.VISIBLE
+            dimmer(0)
             congratsTxt.text = "Congrats Team A!"
 
             var winnersTxtArray = mutableListOf<String>()
@@ -147,10 +161,12 @@ class GameFragment : Fragment(),GameAdapter.OnItemClickListener {
                 winnersTxtArray.add("${it.firstName} now has ${it.wins+1} many wins!")
             }
             winnersTxt.text = winnersTxtArray.joinToString(separator = "\n")
+            doConfetti()
         }
 
         view.teamBWonBtn.setOnClickListener {
             updateUser(2)
+            doConfetti()
             startGameCardView.visibility = View.GONE
             congratsGameCardView.visibility = View.VISIBLE
             congratsTxt.text = "Congrats Team B!"
@@ -226,8 +242,23 @@ class GameFragment : Fragment(),GameAdapter.OnItemClickListener {
         teamAListTxt.text = ""
         teamBListTxt.text = ""
         startGameCardView.visibility = View.GONE
+        textView.foreground.alpha = 0
+
     }
 
+    private fun dimmer(amount: Int){
+//        textView.foreground.alpha = amount
+//        constraintLayout.foreground.alpha = amount
+//        recyclerViewPlayerTable.foreground.alpha = amount
+//        addToTeamABtn?.foreground.alpha = amount
+//        addToTeamBBtn.foreground.alpha = amount
+//        deleteBtn?.foreground.alpha = amount
+//        startBtn?.foreground.alpha = amount
+    }
+
+    private fun doConfetti(){
+        CommonConfetti.rainingConfetti(congratsGameCardView, intArrayOf(R.color.colorPrimary, Color.BLACK)).oneShot()
+    }
 
 
 }

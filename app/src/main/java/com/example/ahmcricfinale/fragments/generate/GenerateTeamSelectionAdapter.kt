@@ -1,6 +1,5 @@
 package com.example.ahmcricfinale.fragments.generate
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +20,7 @@ class GenerateTeamSelectionAdapter(): RecyclerView.Adapter<GenerateTeamSelection
     override fun getItemCount() = selectedUserList.size //Kotlin single expression syntax
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.itemView.firstName_txt.text = selectedUserList[position].firstName
+        holder.itemView.globalTeamName.text = selectedUserList[position].firstName
 
     }
 

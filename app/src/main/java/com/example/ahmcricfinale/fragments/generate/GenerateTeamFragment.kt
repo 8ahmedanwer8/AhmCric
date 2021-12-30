@@ -36,6 +36,7 @@ class GenerateTeamFragment : Fragment(),GenerateTeamAdapter.OnItemClickListener 
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_generate_team, container, false)
         initDisplay(view)
+
         // Recyclerview for leaderboard
         val generateTeamAdapter = GenerateTeamAdapter(this)
         val recyclerView = view.recyclerViewPlayerTable
@@ -69,33 +70,33 @@ class GenerateTeamFragment : Fragment(),GenerateTeamAdapter.OnItemClickListener 
         }
 
         //Display the randomized team on a card view and handle some responsiveness
+        view.smallerGenerateBtn.setOnClickListener {
+            if (selectedUserList.size > 22){
+                Toast.makeText(requireContext(), "Cannot play cricket with more than 22 players total!", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                generateTeam(selectedUserList)
+                showTeam()
+            }
+        }
+
         view.generateBtn.setOnClickListener{
             if (selectedUserList.size > 22){
                 Toast.makeText(requireContext(), "Cannot play cricket with more than 22 players total!", Toast.LENGTH_SHORT).show()
             }
             else{
                 generateTeam(selectedUserList)
-
-                if (teamANames.size <= 4 || teamBNames.size <= 4){
-                    teamAMembersTxt.setTextSize(20f)
-                    teamBMembersTxt.setTextSize(20f)
-                    generateCardView.teamAMembersTxt.text = teamANames.joinToString(separator = "   ")
-                    generateCardView.teamBMembersTxt.text = teamBNames.joinToString(separator = "   ")
-                }
-                if (teamANames.size > 4 || teamBNames.size > 4){
-                    teamAMembersTxt.setTextSize(18f)
-                    teamBMembersTxt.setTextSize(18f)
-                    generateCardView.teamAMembersTxt.text = teamANames.joinToString(separator = "   ")
-                    generateCardView.teamBMembersTxt.text = teamBNames.joinToString(separator = "   ")
-                }
-                view.generateCardView.visibility = View.VISIBLE
-
-                view.setOnClickListener {
-                    view.generateCardView.visibility = View.GONE
-                }
+                showTeam()
             }
 
         }
+
+        view.generateCardView.bringToFront()
+        view.generateCardView.invalidate()
+        view.textView.invalidate()
+        view.constraintLayout2.invalidate()
+        view.recyclerViewGenerateTeams.invalidate()
+        view.recyclerViewPlayerTable.invalidate()
         return view
     }
 
@@ -113,6 +114,26 @@ class GenerateTeamFragment : Fragment(),GenerateTeamAdapter.OnItemClickListener 
             deleteBtn.visibility = View.VISIBLE
             recyclerViewGenerateTeams.visibility = View.VISIBLE
             generateBtn.visibility = View.VISIBLE
+        }
+    }
+
+    private fun showTeam(){
+        if (teamANames.size <= 4 || teamBNames.size <= 4){
+            teamAMembersTxt.setTextSize(20f)
+            teamBMembersTxt.setTextSize(20f)
+            generateCardView.teamAMembersTxt.text = teamANames.joinToString(separator = "   ")
+            generateCardView.teamBMembersTxt.text = teamBNames.joinToString(separator = "   ")
+        }
+        if (teamANames.size > 4 || teamBNames.size > 4){
+            teamAMembersTxt.setTextSize(18f)
+            teamBMembersTxt.setTextSize(18f)
+            generateCardView.teamAMembersTxt.text = teamANames.joinToString(separator = "   ")
+            generateCardView.teamBMembersTxt.text = teamBNames.joinToString(separator = "   ")
+        }
+        view?.generateCardView?.visibility = View.VISIBLE
+
+        view?.setOnClickListener {
+            view?.generateCardView?.visibility = View.GONE
         }
     }
 

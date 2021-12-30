@@ -1,17 +1,14 @@
 package com.example.ahmcricfinale.fragments.game
 
-import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ahmcricfinale.R
 import com.example.ahmcricfinale.fragments.generate.GenerateTeamFragment.Companion.generateTeamSelectionAdapter
 import com.example.ahmcricfinale.model.User
 import kotlinx.android.synthetic.main.row_item_list.view.*
-import java.security.KeyStore
 
 
 class GameAdapter(private val listener: GameFragment) : RecyclerView.Adapter<GameAdapter.MyViewHolder>() {
@@ -40,21 +37,32 @@ class GameAdapter(private val listener: GameFragment) : RecyclerView.Adapter<Gam
             }
         }
     }
+
     interface OnItemClickListener{
         fun onItemClick(position: Int)
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.row_item_list, parent, false))
     }
 
-    override fun getItemCount() = userList.size //Kotlin single expression syntax
+    override fun getItemCount():Int {
+        userList = userList.sortedByDescending{
+            var num = (it.wins.toFloat()/it.losses.toFloat())
+            if(!(num.isInfinite() || num.isNaN())){
+                it.wins.toFloat()/it.losses.toFloat()
+            }
+            else{
+                it.wins.toFloat()
+            }
+        }
+        return userList.size
+    }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = userList[position]
 
-        holder.itemView.firstName_txt.text = currentItem.firstName
+        holder.itemView.globalTeamName.text = currentItem.firstName
         holder.itemView.wins_txt.text = currentItem.wins.toString()
         holder.itemView.losses_txt.text = currentItem.losses.toString()
         holder.itemView.draws_txt.text = currentItem.draws.toString()
@@ -63,14 +71,12 @@ class GameAdapter(private val listener: GameFragment) : RecyclerView.Adapter<Gam
         val wr = (currentItem.wins.toFloat()/currentItem.losses.toFloat())
         when {
             wr.isNaN() -> {holder.itemView.winLossRatio_txt.text = "0.00"}
-            wr.isInfinite() -> {holder.itemView.winLossRatio_txt.text = "1.00"}
+            wr.isInfinite() -> {holder.itemView.winLossRatio_txt.text = "%.2f".format(currentItem.wins.toFloat())}
             else -> {holder.itemView.winLossRatio_txt.text = "%.2f".format(wr)}
         }
-//        holder.itemView.winLossRatio_txt.text = "%.2f".format(wr).takeIf { !it.isNaN() } ?: 0.0)
 
 //        holder.itemView.rowLayout.setOnClickListener {
 //            holder.itemView.setBackgroundColor(Color.parseColor("#DC746C"))
-//
 //        }
     }
 
@@ -94,3 +100,4 @@ class GameAdapter(private val listener: GameFragment) : RecyclerView.Adapter<Gam
         notifyDataSetChanged()
     }
 }
+

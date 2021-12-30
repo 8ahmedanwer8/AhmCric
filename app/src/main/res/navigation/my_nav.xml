@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="com.example.ahmcricfinale.fragments.list.ListFragment"
-        android:label="List"
+        android:label=""
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/action_listFragment_to_addFragment"
@@ -23,7 +23,7 @@
     <fragment
         android:id="@+id/addFragment"
         android:name="com.example.ahmcricfinale.fragments.add.AddFragment"
-        android:label="Add"
+        android:label=""
         tools:layout="@layout/fragment_add" >
         <action
             android:id="@+id/action_addFragment_to_listFragment"
@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/updateFragment"
         android:name="com.example.ahmcricfinale.fragments.update.UpdateFragment"
-        android:label="Update"
+        android:label=""
         tools:layout="@layout/fragment_update" >
         <action
             android:id="@+id/action_updateFragment_to_listFragment"
@@ -44,7 +44,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.ahmcricfinale.fragments.home.home"
-        android:label="fragment_home"
+        android:label=""
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_listFragment"
@@ -55,16 +55,40 @@
         <action
             android:id="@+id/action_homeFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_shareFragment"
+            app:destination="@id/shareFragment" />
     </fragment>
         <fragment
         android:id="@+id/generateTeamFragment"
         android:name="com.example.ahmcricfinale.fragments.generate.GenerateTeamFragment"
-        android:label="Generate random teams"
+        android:label=""
         tools:layout="@layout/fragment_generate_team" />
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.example.ahmcricfinale.fragments.game.GameFragment"
-        android:label="fragment_game"
+        android:label=""
         tools:layout="@layout/fragment_game" >
+    </fragment>
+    <fragment
+        android:id="@+id/shareFragment"
+        android:name="com.example.ahmcricfinale.fragments.share.ShareFragment"
+        android:label=""
+        tools:layout="@layout/fragment_share" >
+        <action
+            android:id="@+id/action_shareFragment_to_foundPlayersRecyclerView"
+            app:destination="@id/foundPlayersRecyclerView" />
+    </fragment>
+    <fragment
+        android:id="@+id/foundPlayersRecyclerView"
+        android:name="com.example.ahmcricfinale.fragments.share.FoundPlayersRecyclerView"
+        android:label=""
+        tools:layout="@layout/fragment_found_players_recycler_view" >
+        <action
+            android:id="@+id/action_foundPlayersRecyclerView_to_shareFragment"
+            app:destination="@id/shareFragment" />
+        <argument
+            android:name="FoundPlayersRecyclerViewArgs"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -10,7 +10,7 @@ import kotlinx.android.parcel.Parcelize
 data class User(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val firstName: String,
+    var firstName: String,
     val wins: Int,
     val losses: Int,
     val draws: Int

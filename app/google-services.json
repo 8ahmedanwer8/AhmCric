@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "549788487514",
+    "project_id": "ahmcric",
+    "storage_bucket": "ahmcric.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549788487514:android:665d2684c263041a942d63",
+        "android_client_info": {
+          "package_name": "com.example.ahmcricfinale"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "549788487514-dt4q9sa1qc8l9sjukhfn1sj3air35t9c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA04FYBaTQaY5gg96IA13Sp8eTgFtHoZrs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "549788487514-dt4q9sa1qc8l9sjukhfn1sj3air35t9c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
