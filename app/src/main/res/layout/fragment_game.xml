@@ -165,7 +165,7 @@
         android:paddingEnd="10dp"
         android:text="Add to Team A"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerViewPlayerTable" />
 
@@ -179,7 +179,7 @@
         android:paddingEnd="10dp"
         android:text="Add to Team B"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerViewPlayerTable" />
 
@@ -367,13 +367,15 @@
 
     <Button
         android:id="@+id/startBtn"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginEnd="108dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginEnd="96dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_btn"
         android:backgroundTint="@color/teal_700"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:text="Start Match"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
@@ -385,7 +387,7 @@
         android:id="@+id/congratsGameCardView"
         android:layout_width="300dp"
         android:layout_height="200dp"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:cardBackgroundColor="@color/gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -460,7 +462,7 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/startBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.23"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addToTeamABtn">
 
@@ -491,7 +493,7 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/startBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.81"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addToTeamABtn">
 
