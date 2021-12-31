@@ -3,14 +3,13 @@ package com.example.ahmcricfinale
 import android.content.Context
 import android.content.Intent
 import android.graphics.Point
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.DisplayMetrics
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.ahmcricfinale.R
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var constraintLayout: ConstraintLayout
@@ -30,6 +29,15 @@ class MainActivity : AppCompatActivity() {
 
         Log.i("MainActivity", "Width: $width")
         Log.i("MainActivity", "Height: $height")
+
+        val dm = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(dm)
+        val dpiClassification = dm.densityDpi
+        val xDpi = dm.xdpi
+        val yDpi = dm.ydpi
+
+        Log.i("MainActivity", "Width: $xDpi")
+        Log.i("MainActivity", "Height: $yDpi")
 
 
         when{

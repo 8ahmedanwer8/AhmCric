@@ -52,7 +52,7 @@ class UpdateFragment : Fragment() {
             mUserViewModel.updateUser(updatedUser)
             Toast.makeText(requireContext(), "Updated Successfully!", Toast.LENGTH_SHORT).show()
             // Navigate Back
-            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+            findNavController().navigateUp()
         } else {
             Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_SHORT)
                 .show()
@@ -82,7 +82,7 @@ class UpdateFragment : Fragment() {
                 requireContext(),
                 "Successfully removed: ${args.currentUser.firstName}",
                 Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+            findNavController().navigateUp()
         }
         builder.setNegativeButton("No") { _, _ -> }
         builder.setTitle("Delete ${args.currentUser.firstName}?")

@@ -37,19 +37,19 @@ class home : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_shareFragment)
         }
 
-        addOnBackPressedCallback {
-            findNavController().navigateUp()
-        }
+//        addOnBackPressedCallback {
+//            findNavController().navigateUp()
+//        }
 
         return view
     }
-    private fun addOnBackPressedCallback(callback: () -> Unit) {
-        activity?.onBackPressedDispatcher?.addCallback( viewLifecycleOwner, object : OnBackPressedCallback(true)
-        {
-            override fun handleOnBackPressed() {
-                callback()
-                remove() }
-        })
-    }
+//    private fun addOnBackPressedCallback(callback: () -> Unit) {
+//        activity?.onBackPressedDispatcher?.addCallback( viewLifecycleOwner, object : OnBackPressedCallback(true)
+//        {
+//            override fun handleOnBackPressed() {
+//                callback()
+//                remove() }
+//        })
+//    }
 
 }

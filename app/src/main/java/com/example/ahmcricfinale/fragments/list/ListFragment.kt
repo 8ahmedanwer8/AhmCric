@@ -49,7 +49,7 @@ class ListFragment : Fragment() {
         setHasOptionsMenu(true)
 
         addOnBackPressedCallback {
-            findNavController().navigate(R.id.action_listFragment_to_homeFragment)
+            findNavController().navigateUp()
             Log.i("ListFragment", "Goin' back")
         }
 
@@ -66,7 +66,7 @@ class ListFragment : Fragment() {
             return true
         }
         if(item.itemId == android.R.id.home){
-            findNavController().navigate(R.id.action_listFragment_to_homeFragment)
+            findNavController().navigateUp()
             return true
         }
         return super.onOptionsItemSelected(item)

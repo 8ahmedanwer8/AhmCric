@@ -145,7 +145,7 @@ class ShareFragment : Fragment() {
                 for (items in snapshot.children) {
                     foundPlayerList.add((items.key).toString())
                 }
-                Toast.makeText(activity, "Successfully loaded all team names around the world", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Successfully loaded all team names around the world", Toast.LENGTH_SHORT).show()
                 adapter.notifyDataSetChanged()
             }
 
