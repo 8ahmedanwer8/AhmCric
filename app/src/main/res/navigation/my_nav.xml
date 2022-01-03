@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.ahmcricfinale.fragments.list.ListFragment"
+        android:name="com.confuseddevs.ahmcricfinale.fragments.list.ListFragment"
         android:label=""
         tools:layout="@layout/fragment_list" >
         <action
@@ -27,21 +27,21 @@
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.example.ahmcricfinale.fragments.add.AddFragment"
+        android:name="com.confuseddevs.ahmcricfinale.fragments.add.AddFragment"
         android:label=""
         tools:layout="@layout/fragment_add" />
     <fragment
         android:id="@+id/updateFragment"
-        android:name="com.example.ahmcricfinale.fragments.update.UpdateFragment"
+        android:name="com.confuseddevs.ahmcricfinale.fragments.update.UpdateFragment"
         android:label=""
         tools:layout="@layout/fragment_update" >
         <argument
             android:name="currentUser"
-            app:argType="com.example.ahmcricfinale.model.User" />
+            app:argType="com.confuseddevs.ahmcricfinale.model.User" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.ahmcricfinale.fragments.home.home"
+        android:name="com.confuseddevs.ahmcricfinale.fragments.home.home"
         android:label=""
         tools:layout="@layout/fragment_home" >
         <action
@@ -75,18 +75,18 @@
     </fragment>
         <fragment
         android:id="@+id/generateTeamFragment"
-        android:name="com.example.ahmcricfinale.fragments.generate.GenerateTeamFragment"
+        android:name="com.confuseddevs.ahmcricfinale.fragments.generate.GenerateTeamFragment"
         android:label=""
         tools:layout="@layout/fragment_generate_team" />
     <fragment
         android:id="@+id/gameFragment"
-        android:name="com.example.ahmcricfinale.fragments.game.GameFragment"
+        android:name="com.confuseddevs.ahmcricfinale.fragments.game.GameFragment"
         android:label=""
         tools:layout="@layout/fragment_game" >
     </fragment>
     <fragment
         android:id="@+id/shareFragment"
-        android:name="com.example.ahmcricfinale.fragments.share.ShareFragment"
+        android:name="com.confuseddevs.ahmcricfinale.fragments.share.ShareFragment"
         android:label=""
         tools:layout="@layout/fragment_share" >
         <action
@@ -99,7 +99,7 @@
     </fragment>
     <fragment
         android:id="@+id/foundPlayersRecyclerView"
-        android:name="com.example.ahmcricfinale.fragments.share.FoundPlayersRecyclerView"
+        android:name="com.confuseddevs.ahmcricfinale.fragments.share.FoundPlayersRecyclerView"
         android:label=""
         tools:layout="@layout/fragment_found_players_recycler_view" >
         <action
