@@ -34,10 +34,10 @@ I made AhmCric to solve the problem of failing to remember wins and losses every
 ### Features
 
 * I implemented a database with RoomDB, SQlite and Kotlin coroutines to make asynchronous and efficient queries on the background thread
-* I utilized
-* I developed a simple user-matching algorithm with retries and priorities to connect users with matching preferences
-* I built everything with Sockets.io, Express.js, Next.js, Chakra-UI and TypeScript and Figma
-* Working on deploying to AWS EC2 instance for live users to use and will promote the app hopefully soon
+* I leveeraged the MVVM design pattern by having a ViewModel component that acted as the intermediary between the UI and the business logic
+* I created a comprehensive UI/UX making use of RecyclerViews, CardViews, TextViews, Alert dialogs, Toasts, Buttons and Fragments for the layout
+* I enabled user-to-user sharing of data by integrating the app with Firebase Real-time Database
+* I published the app on Google Play
 
 <!-- RUNNING LOCALLY -->
 ## Running Locally
