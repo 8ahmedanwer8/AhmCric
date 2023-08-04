@@ -1,8 +1,3 @@
-# AhmCric
-#### Playstore: https://play.google.com/store/apps/details?id=com.confuseddevs.ahmcricfinale&hl=en&gl=US
-#### Demo video: https://www.youtube.com/watch?v=SCXKYBLiJB4&t=110s
-
-AhmCric android app uses RoomDB and Firebase to allow you to track your cricket players' win/loss record and share them with friends. 
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 
@@ -13,7 +8,7 @@ AhmCric android app uses RoomDB and Firebase to allow you to track your cricket 
 </div>
 <div align="center">
   <a href="https://github.com/8ahmedanwer8/repo_name">
-    <img src="https://github.com/8ahmedanwer8/AhmCric/assets/84689304/33c497c3-a2dd-481e-8f93-99d017426d0d" alt="Logo">
+    <img src="https://github.com/8ahmedanwer8/AhmCric/assets/84689304/33c497c3-a2dd-481e-8f93-99d017426d0d" width=800 alt="Logo">
   </a>
 <h3 align="center">AhmCric</h3>
 
@@ -31,34 +26,18 @@ AhmCric android app uses RoomDB and Firebase to allow you to track your cricket 
 I made AhmCric to solve the problem of failing to remember wins and losses every time I played cricket with friends during the lockdowns (our gatherings were within the max capacity). AhmCric is a multi-screen (uses fragments) android app that lets me locally store the names of my friends and their wins, losses, draws and calculate win/loss ratio. It uses RoomDB which is an abstraction of SQlite. Additionally, the user can randomly generate two cricket teams (another problem we struggled with) and share/exchange their roster and stats with any users around the world using Firebase’s Real-time Database. 
 
 
-### Features
+### Highlights
 
 * I implemented a database with RoomDB, SQlite and Kotlin coroutines to make asynchronous and efficient queries on the background thread
-* I leveeraged the MVVM design pattern by having a ViewModel component that acted as the intermediary between the UI and the business logic
+* I leveraged the MVVM design pattern by having a ViewModel component that acted as the intermediary between the UI and the business logic
 * I created a comprehensive UI/UX making use of RecyclerViews, CardViews, TextViews, Alert dialogs, Toasts, Buttons and Fragments for the layout
 * I enabled user-to-user sharing of data by integrating the app with Firebase Real-time Database
 * I published the app on Google Play
 
-<!-- RUNNING LOCALLY -->
-## Running Locally
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/8ahmedanwer8/ceiconnect.git
-   ```
-2. Install packages
-   ```sh
-   yarn install
-   ```
-3. Run app
-   ```js
-   yarn dev
-   ```
-
 <!-- CONTACT -->
 ## Contact
 
-[Twitter](https://twitter.com/https://twitter.com/AhmedAn17381286) 
+[Twitter](https://twitter.com/AhmedAn17381286) 
 <br />
 [LinkedIn](https://www.linkedin.com/in/8ahmed8/)
 ****
